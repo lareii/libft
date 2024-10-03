@@ -19,7 +19,7 @@ $(NAME): $(OBJS)
 $(BUILD_DIR):
 	mkdir -p $@
 
-$(BUILD_DIR)/%.o: $(BUILD_DIR) | %.c
+$(BUILD_DIR)/%.o: %.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
