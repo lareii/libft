@@ -1,8 +1,8 @@
 NAME = libft.a
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Iinclude
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
-VPATH = src:src/ascii:src/memory:src/string
+VPATH = src/ascii:src/memory:src/string
 BUILD_DIR = build
 
 SRCS =	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
@@ -16,9 +16,11 @@ OBJS = $(addprefix $(BUILD_DIR)/,$(SRCS:.c=.o))
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-$(BUILD_DIR)/%.o: %.c
-	mkdir -p $(dir $@)
-	$(CC) $(FLAGS) -c $< -o $@
+$(BUILD_DIR):
+	mkdir -p $@
+
+$(BUILD_DIR)/%.o: $(BUILD_DIR) | %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
@@ -26,11 +28,9 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 fclean:	clean
-		rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
-test: test.c
-	$(CC) $(FLAGS) -o test test.c -L. -lft
-
-.PHONY: all clean fclean re test
+# .SILENT:
+.PHONY: all clean fclean re
