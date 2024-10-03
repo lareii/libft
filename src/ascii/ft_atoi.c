@@ -6,12 +6,9 @@
 /*   By: ebabaogl <ebabaogl@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 14:48:47 by ebabaogl          #+#    #+#             */
-/*   Updated: 2024/05/01 15:33:49 by ebabaogl         ###   ########.fr       */
+/*   Updated: 2024/10/03 10:19:25 by ebabaogwl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <stdio.h>
 
 int	ft_atoi(const char *nptr)
 {
