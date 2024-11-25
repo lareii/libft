@@ -3,4 +3,5 @@
 *.out
 *.dSYM
 
+.bonus_flag
 build/
