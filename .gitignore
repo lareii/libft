@@ -1,0 +1,6 @@
+*.a
+*.o
+*.out
+*.dSYM
+
+build/
